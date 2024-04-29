@@ -57,6 +57,8 @@ function solution(name) {
   return moveMin + moveNumber;
 }
 
+// 공백
+
 /*
 A는 바꿀 필요가 없으니까 좌우에 A 또는 탐색이 완료된 곳을 제외하고 가장 가까운 곳으로 이동해야 함 
 조이스틱 조작횟수에 영향을 미치는 변수: 알파벳, 커서 이동
