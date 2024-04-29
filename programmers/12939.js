@@ -3,3 +3,4 @@ function solution(s) {
   return [].push(arr[0], arr[arr.length - 1]).join(" ");
 }
 1;
+// 풀이 예시
