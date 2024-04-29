@@ -36,7 +36,6 @@ function solution(name) {
   let moveMin = name.length - 1;
 
   for (let i = 0; i < name.length; ++i) {
-    //첫 위치부터 시작하면 조이스틱이 오른쪽, 왼쪽으로 이동하지 않아도 되기 때문에 문제가 생김
     const alphabet = name[i];
     moveNumber = moveNumber + alphabet_number[alphabet];
     if (name[i + 1] == "A") {
