@@ -45,7 +45,10 @@ function solution(name) {
     if (name1[i] == "A") {
       moveRight = i - 1;
       moveLeft = name1.length - (name1.slice(i).match(/(A)+/g)[0].length + i);
-      moveCur = moveRight > moveLeft ? moveRight + moveLeft * 2 : moveRight * 2 + moveLeft;
+      moveCur =
+        moveRight > moveLeft
+          ? moveRight + moveLeft * 2
+          : moveRight * 2 + moveLeft;
       if (moveMin > moveCur) {
         moveMin = moveCur;
       }
