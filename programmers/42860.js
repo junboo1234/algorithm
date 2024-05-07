@@ -35,10 +35,9 @@ function solution(name) {
   let moveCur = name.length;
   let moveMin = name.length - 1;
 
-  for (let i = 0; i < name.length; ++i) {
-    const alphabet = name[i];
+  name.split("").forEach((alphabet, i) => {
     moveNumber = moveNumber + alphabet_number[alphabet];
-    if (name[i + 1] == "A") {
+    if (name[i + 1] === "A") {
       moveRight = i;
       moveLeft =
         name.length - (name.slice(i + 1).match(/(A)+/g)[0].length + i + 1);
@@ -50,7 +49,8 @@ function solution(name) {
         moveMin = moveCur;
       }
     }
-  }
+  });
+
   return moveMin + moveNumber;
 }
 
