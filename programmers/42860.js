@@ -29,22 +29,18 @@ function solution(name) {
     Z: 1,
   };
 
-  let moveNumber = alphabet_number[name[0]];
-  const name2 = name.split("");
-  name2[0] = "A";
-  const name1 = name2.join("");
+  let moveNumber = 0; // alphabet_number[name[0]]
   let moveRight = 0;
   let moveLeft = 0;
   let moveCur = name.length;
   let moveMin = name.length - 1;
 
-  for (let i = 1; i < name1.length; ++i) {
-    //첫 위치부터 시작하면 조이스틱이 오른쪽, 왼쪽으로 이동하지 않아도 되기 때문에 문제가 생김
-    const alphabet = name1[i];
+  name.split("").forEach((alphabet, i) => {
     moveNumber = moveNumber + alphabet_number[alphabet];
-    if (name1[i] == "A") {
-      moveRight = i - 1;
-      moveLeft = name1.length - (name1.slice(i).match(/(A)+/g)[0].length + i);
+    if (name[i + 1] === "A") {
+      moveRight = i;
+      moveLeft =
+        name.length - (name.slice(i + 1).match(/(A)+/g)[0].length + i + 1);
       moveCur =
         moveRight > moveLeft
           ? moveRight + moveLeft * 2
@@ -53,11 +49,10 @@ function solution(name) {
         moveMin = moveCur;
       }
     }
-  }
+  });
+
   return moveMin + moveNumber;
 }
-
-// 공백
 
 /*
 A는 바꿀 필요가 없으니까 좌우에 A 또는 탐색이 완료된 곳을 제외하고 가장 가까운 곳으로 이동해야 함 
